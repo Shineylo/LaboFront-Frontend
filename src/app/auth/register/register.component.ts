@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  form: FormGroup;
 
+  constructor(){
+    this.form = new FormGroup({
+      'username': new FormControl(''),
+      'password': new FormControl('')
+    })
+  }
+
+  onSubmit(){
+    
+  }
 }

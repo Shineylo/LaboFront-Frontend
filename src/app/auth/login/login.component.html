@@ -18,6 +18,7 @@
                     </div>
                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                 </div>
+                <div *ngIf="badcredentials"> Mauvais</div>
                 </form> 
                 <div>
                 <p class="mb-0">Pas de compte ? <a routerLink="../register" class="text-white-50 fw-bold">S'enregistrer</a>

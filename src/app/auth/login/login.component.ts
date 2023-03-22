@@ -9,6 +9,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent {
   form: FormGroup;
+  badcredentials: boolean = false;
 
   constructor(private readonly _loginService: LoginService, private readonly _router : Router){
     this.form = new FormGroup({
@@ -22,7 +23,9 @@ export class LoginComponent {
     if( this.form.valid ){
       this._loginService.login(this.form.value).subscribe(
         {
-          next: value => this._router.navigateByUrl("auth/register")
+          next: value => this._router.navigateByUrl("auth/register"),
+          error: (error) => this.badcredentials = true
+          
         }
       )
       this.form.reset({

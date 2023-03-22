@@ -18,10 +18,11 @@ export class LoginService {
     login(cred: {username:string, password:string}){
         return this._httpClient.post<ConnectedUser>("http://localhost:8080/api/auth/login", cred).pipe(
             tap(resp => {
-                this._clientService.connection(this.connectedData?.roles[0]??"");
-                localStorage.setItem("token",this.connectedData?.token??"")
+                this.connectedData = resp;
+                localStorage.setItem("token",this.connectedData?.token??"tt")
                 localStorage.setItem("username",this.connectedData?.username??"")
                 localStorage.setItem("role",this.connectedData?.roles[0]??"")
+                this._clientService.connection(localStorage.getItem("role")??"")
             })
 
         )

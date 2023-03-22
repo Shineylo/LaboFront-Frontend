@@ -20,7 +20,6 @@ export class LoginComponent {
   }
 
   onSubmit(){
-    console.log( this.form );
     if( this.form.valid ){
       this._loginService.login(this.form.value).subscribe(
         {

@@ -10,7 +10,7 @@ export class ClientService {
   constructor() { }
 
   connection(user: string){
-    this.anyUserConnectedSource.next(localStorage.getItem("role")??"");
+    this.anyUserConnectedSource.next(user);
   }
 
   deconnection(){

@@ -12,6 +12,7 @@ export class LoginComponent {
   badcredentials: boolean = false;
 
   constructor(private readonly _loginService: LoginService, private readonly _router : Router){
+    localStorage.clear();
     this.form = new FormGroup({
       'username': new FormControl(''),
       'password': new FormControl('')

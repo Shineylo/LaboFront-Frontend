@@ -19,7 +19,6 @@ export class LoginService {
         return this._httpClient.post<ConnectedUser>("http://localhost:8080/api/auth/login", cred).pipe(
             tap(resp => {
                 this._clientService.connection(this.connectedData?.roles[0]??"");
-                this.connectedData = resp;
                 localStorage.setItem("token",this.connectedData?.token??"")
                 localStorage.setItem("username",this.connectedData?.username??"")
                 localStorage.setItem("role",this.connectedData?.roles[0]??"")

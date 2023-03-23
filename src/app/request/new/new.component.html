@@ -1,0 +1,41 @@
+<section class="vh-100 gradient-custom" >
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-6">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body text-center">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="mb-md-4 mt-md-4 ">
+                            <h2 class="fw-bold mb-2 text-uppercase">Réservation</h2>
+                            <div class=" mb-4">
+                                <label class="form-label" for="in-utilisateur">Capacité</label>
+                                <input type="text" id="in-utilisateur" class="form-control form-control-lg" formControlName="username"/>
+                            </div>
+                            <div class=" mb-4">
+                                <label class="form-label" for="in-password" >Justification</label>
+                                <input type="text" id="in-password" class="form-control form-control-lg" formControlName="password"/>
+                            </div>
+                            <div class=" mb-4">
+                                <label class="form-label" for="in-password" >Début</label>
+                                <input type="datetime-local" id="in-password" class="form-control form-control-lg" formControlName="password"/>
+                            </div>
+                            <div class=" mb-4">
+                                <label class="form-label" for="in-password" >Durée</label>
+                                <input type="time" id="in-password" class="form-control form-control-lg" formControlName="password"/>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label" for="in-password" >Matériel</label>
+                                <ng-multiselect-dropdown 
+                                    [settings]="dropdownSettings"
+                                    [data]="dropdownList">
+                                </ng-multiselect-dropdown>
+                            </div>
+                            <button class="btn btn-outline-light btn-lg px-4" type="submit">Envoyer</button>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

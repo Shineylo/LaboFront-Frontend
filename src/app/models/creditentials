@@ -1,4 +1,0 @@
-export interface Contact {
-    username: string,
-    password: string
-}

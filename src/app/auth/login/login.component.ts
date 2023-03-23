@@ -23,7 +23,7 @@ export class LoginComponent {
     if( this.form.valid ){
       this._loginService.login(this.form.value).subscribe(
         {
-          next: value => this._router.navigateByUrl("auth/register"),
+          next: value => this._router.navigateByUrl("/request/accueil"),
           error: (error) => this.badcredentials = true
           
         }

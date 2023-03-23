@@ -12,9 +12,14 @@
           <a class="nav-link" >admin </a>
         </li>
       </ul>
+      <ul *ngSwitchCase="'ROLE_STUDENT'" class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="request/accueil">Requête </a>
+        </li>
+      </ul>
       <ul *ngSwitchDefault class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" >default </a>
+          <a class="nav-link" routerLink="request/accueil">Requête </a>
         </li>
       </ul>
       

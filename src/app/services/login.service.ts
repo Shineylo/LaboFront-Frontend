@@ -15,7 +15,7 @@ export class LoginService {
         private readonly _clientService: ClientService
 	) {}
 
-    login(cred: {username:string, password:string}){
+    login(cred: {username:string, password:string}, ){
         return this._httpClient.post<ConnectedUser>("http://localhost:8080/api/auth/login", cred).pipe(
             tap(resp => {
                 this.connectedData = resp;

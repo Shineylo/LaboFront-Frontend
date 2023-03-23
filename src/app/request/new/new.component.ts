@@ -15,15 +15,17 @@ export class NewComponent implements OnInit{
 
   constructor(private readonly _requestService: RequestService){
     this.form = new FormGroup({
-      'username': new FormControl(''),
-      'password': new FormControl('')
+      'capacity': new FormControl(''),
+      'justification': new FormControl(''),
+      'start': new FormControl(''),
+      'end': new FormControl(''),
+      'material': new FormControl([])
     });
   }
 
   ngOnInit() {
     this._requestService.getAll().subscribe({
-      next: (resp) => this.dropdownList = resp,
-      complete: () => console.log(this.dropdownList)
+      next: (resp) => this.dropdownList = resp
     })
     this.dropdownSettings = {
       idField: 'id',
@@ -33,7 +35,7 @@ export class NewComponent implements OnInit{
 
 
   onSubmit(){
-    
+    console.log("cc");
   }
 
 

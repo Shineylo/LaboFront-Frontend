@@ -8,24 +8,24 @@
                             <div class="mb-md-4 mt-md-4 ">
                             <h2 class="fw-bold mb-2 text-uppercase">Réservation</h2>
                             <div class=" mb-4">
-                                <label class="form-label" for="in-utilisateur">Capacité</label>
-                                <input type="text" id="in-utilisateur" class="form-control form-control-lg" formControlName="username"/>
+                                <label class="form-label" for="in-capacity">Capacité</label>
+                                <input type="text" id="in-capacity" class="form-control form-control-lg" formControlName="capacity"/>
                             </div>
                             <div class=" mb-4">
-                                <label class="form-label" for="in-password" >Justification</label>
-                                <input type="text" id="in-password" class="form-control form-control-lg" formControlName="password"/>
+                                <label class="form-label" for="in-justification" >Justification</label>
+                                <input type="text" id="in-justification" class="form-control form-control-lg" formControlName="justification"/>
                             </div>
                             <div class=" mb-4">
-                                <label class="form-label" for="in-password" >Début</label>
-                                <input type="datetime-local" id="in-password" class="form-control form-control-lg" formControlName="password"/>
+                                <label class="form-label" for="in-start" >Début</label>
+                                <input type="datetime-local" id="in-start" class="form-control form-control-lg" formControlName="start"/>
                             </div>
                             <div class=" mb-4">
-                                <label class="form-label" for="in-password" >Durée</label>
-                                <input type="time" id="in-password" class="form-control form-control-lg" formControlName="password"/>
+                                <label class="form-label" for="in-end" >Durée</label>
+                                <input type="time" id="in-end" class="form-control form-control-lg" formControlName="end"/>
                             </div>
                             <div class="mb-4">
-                                <label class="form-label" for="in-password" >Matériel</label>
-                                <ng-multiselect-dropdown 
+                                <label class="form-label" for="in-material" >Matériel</label>
+                                <ng-multiselect-dropdown id="in-material" formControlName="material"
                                     [settings]="dropdownSettings"
                                     [data]="dropdownList">
                                 </ng-multiselect-dropdown>

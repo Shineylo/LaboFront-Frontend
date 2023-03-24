@@ -1,0 +1,7 @@
+<ul class="mh-100">
+	<li *ngFor="let request of requests">
+		<a [routerLink]="'details/'+request.id">
+			{{ request.id+" "+request.currentStatus }}
+		</a>
+	</li>
+</ul>

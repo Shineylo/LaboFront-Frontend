@@ -12,11 +12,11 @@ export type Post = {
 })
 export class RequestService {
 
-  constructor(
-    private readonly _httpClient: HttpClient,
-  ) { }
+	constructor(
+		private readonly _httpClient: HttpClient,
+	) { }
 
-  getAll() {
+  	getAllMaterial() {
 	return this._httpClient.get<Post[]>('http://localhost:8080/api/material')
 		.pipe(
 			// Modifier le résultat de l'observable précédent
@@ -34,8 +34,21 @@ export class RequestService {
 	}
 
 	create(form: any): Observable<never> {
-		return this._httpClient.post<never>("http://localhost:8080/api/request/new",form).pipe(
+		return this._httpClient.post<never>("http://localhost:8080/api/request/new",form,{
+			headers:{'Authorisation':localStorage.getItem("token")!}
+		}).pipe(
 		  tap( (data) => console.log("ok"))
+		);
+	}
+
+	getRequests(status:string) {
+		return this._httpClient.get<any[]>('http://localhost:8080/api/request/future',{
+			params: {status}
+		}).pipe(
+			// Gestion de l'erreur
+			catchError((error) => {
+				return throwError(() => new Error("ERREUR"))
+			})
 		);
 	}
 }

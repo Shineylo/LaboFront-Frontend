@@ -25,7 +25,7 @@ export class NewComponent implements OnInit{
   }
 
   ngOnInit() {
-    this._requestService.getAll().subscribe({
+    this._requestService.getAllMaterial().subscribe({
       next: (resp) => this.dropdownList = resp
     })
     this.dropdownSettings = {

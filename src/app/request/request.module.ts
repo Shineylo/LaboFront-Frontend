@@ -8,13 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from '../services/request.service';
+import { ManageComponent } from './manage/manage.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
     NewComponent,
     AccueilComponent,
-    MineComponent
+    MineComponent,
+    ManageComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,

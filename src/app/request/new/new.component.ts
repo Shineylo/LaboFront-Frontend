@@ -15,11 +15,12 @@ export class NewComponent implements OnInit{
 
   constructor(private readonly _requestService: RequestService){
     this.form = new FormGroup({
-      'capacity': new FormControl(''),
+      'neededCapacity': new FormControl(''),
       'justification': new FormControl(''),
-      'start': new FormControl(''),
-      'end': new FormControl(''),
-      'material': new FormControl([])
+      'date': new FormControl(''),
+      'beginAt': new FormControl(''),
+      'endAt': new FormControl(''),
+      'materialIds': new FormControl([])
     });
   }
 
@@ -35,7 +36,17 @@ export class NewComponent implements OnInit{
 
 
   onSubmit(){
-    console.log("cc");
+    if( this.form.valid ){
+      console.log(this.form);
+      const data = {
+        ...this.form.value,
+        userLogin : localStorage.getItem("username"),
+        materialIds : this.form.value.materialIds.map((value:any)=> {
+          return value.id
+        })
+      }
+      this._requestService.create( data ).subscribe( () => this.form.reset() )
+    }
   }
 
 

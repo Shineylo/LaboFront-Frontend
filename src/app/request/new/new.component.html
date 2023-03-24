@@ -9,23 +9,27 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Réservation</h2>
                             <div class=" mb-4">
                                 <label class="form-label" for="in-capacity">Capacité</label>
-                                <input type="text" id="in-capacity" class="form-control form-control-lg" formControlName="capacity"/>
+                                <input type="text" id="in-capacity" class="form-control form-control-lg" formControlName="neededCapacity"/>
                             </div>
                             <div class=" mb-4">
                                 <label class="form-label" for="in-justification" >Justification</label>
                                 <input type="text" id="in-justification" class="form-control form-control-lg" formControlName="justification"/>
                             </div>
                             <div class=" mb-4">
-                                <label class="form-label" for="in-start" >Début</label>
-                                <input type="datetime-local" id="in-start" class="form-control form-control-lg" formControlName="start"/>
+                                <label class="form-label" for="in-date" >Début</label>
+                                <input type="date" id="in-date" class="form-control form-control-lg" formControlName="date"/>
                             </div>
                             <div class=" mb-4">
-                                <label class="form-label" for="in-end" >Durée</label>
-                                <input type="time" id="in-end" class="form-control form-control-lg" formControlName="end"/>
+                                <label class="form-label" for="in-start" >Heure de début</label>
+                                <input type="time" id="in-start" class="form-control form-control-lg" formControlName="beginAt"/>
+                            </div>
+                            <div class=" mb-4">
+                                <label class="form-label" for="in-end" >Heure de fin</label>
+                                <input type="time" id="in-end" class="form-control form-control-lg" formControlName="endAt"/>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="in-material" >Matériel</label>
-                                <ng-multiselect-dropdown id="in-material" formControlName="material"
+                                <ng-multiselect-dropdown id="in-material" formControlName="materialIds"
                                     [settings]="dropdownSettings"
                                     [data]="dropdownList">
                                 </ng-multiselect-dropdown>

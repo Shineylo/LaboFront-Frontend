@@ -1,4 +1,4 @@
-<section class=" gradient-custom" >
+<section class="py-5 gradient-custom" >
     <div class="container ">
         <div class="row d-flex justify-content-center align-items-center ">
             <div class="col-xl-6">
@@ -9,7 +9,13 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Réservation</h2>
                             <div class=" mb-4">
                                 <label class="form-label" for="in-capacity">Capacité</label>
-                                <input type="text" id="in-capacity" class="form-control form-control-lg" formControlName="neededCapacity"/>
+                                <input type="number" id="in-capacity" class="form-control form-control-lg" formControlName="neededCapacity"/>
+                                <p class="error" *ngIf="form.controls['neededCapacity'].hasError('min')">
+                                    La capacité doit être supérieur à 5.
+                                </p>
+                                <p class="error" *ngIf="form.controls['neededCapacity'].hasError('max')">
+                                    La capacité doit être inférieur à 300.
+                                </p>
                             </div>
                             <div class=" mb-4">
                                 <label class="form-label" for="in-justification" >Justification</label>
@@ -18,14 +24,35 @@
                             <div class=" mb-4">
                                 <label class="form-label" for="in-date" >Début</label>
                                 <input type="date" id="in-date" class="form-control form-control-lg" formControlName="date"/>
+                                <p class="error" *ngIf="form.controls['date'].dirty && form.controls['date'].hasError('notInFuture')">
+                                    La date doit être au minimum dans 3 jours.
+                                </p>
+                                <p class="error" *ngIf="form.controls['date'].hasError('duringWE')">
+                                    La date ne peut être durant le weekend.
+                                </p>
                             </div>
                             <div class=" mb-4">
                                 <label class="form-label" for="in-start" >Heure de début</label>
                                 <input type="time" id="in-start" class="form-control form-control-lg" formControlName="beginAt"/>
+                                <p class="error" *ngIf="form.controls['beginAt'].dirty && form.controls['beginAt'].hasError('timeBeforeOpen')">
+                                    L'heure ne peut être avant 8:00
+                                </p>
+                                <p class="error" *ngIf="form.controls['beginAt'].dirty && form.controls['beginAt'].hasError('timeAfterOpen')">
+                                    L'heure ne peut être après 17:30
+                                </p>
                             </div>
                             <div class=" mb-4">
                                 <label class="form-label" for="in-end" >Heure de fin</label>
                                 <input type="time" id="in-end" class="form-control form-control-lg" formControlName="endAt"/>
+                                <p class="error" *ngIf="form.controls['endAt'].dirty && form.controls['endAt'].hasError('timeAfterOpen')">
+                                    L'heure ne peut être après 18:00
+                                </p>
+                                <p class="error" *ngIf="form.controls['endAt'].dirty && form.controls['endAt'].hasError('timeBeforeOpen')">
+                                    L'heure ne peut être avant 8:30
+                                </p>
+                                <p class="error" *ngIf="form.controls['endAt'].dirty && form.hasError('dateBBeforeA')">
+                                    Le de fin ne peut être avant l'heure de début
+                                </p>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label" for="in-material" >Matériel</label>

@@ -1,6 +1,6 @@
-<ul class="mh-100">
+<ul class="">
 	<li *ngFor="let request of requests">
-		<a [routerLink]="'details/'+request.id">
+		<a [routerLink]="'/request/detail/'+request.id">
 			{{ request.id+" "+request.currentStatus }}
 		</a>
 	</li>

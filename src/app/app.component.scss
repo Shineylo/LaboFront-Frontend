@@ -1,0 +1,22 @@
+.layout{
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+}
+
+.container {
+    position: relative;
+    min-height: 100%;
+  }
+  
+.content {
+    padding-bottom: 2.5rem;
+    flex-grow: 1;    /* Footer height */
+  }
+  
+
+.footer {
+    bottom: 0;
+    width: 100%;
+          /* Footer height */
+  }

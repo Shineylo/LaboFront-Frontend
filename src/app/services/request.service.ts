@@ -34,9 +34,9 @@ export class RequestService {
 	}
 
 	create(form: any): Observable<never> {
-		return this._httpClient.post<never>("http://localhost:8080/api/request/new",form,{
+		return this._httpClient.post<never>("http://localhost:8080/api/request/new",form/** ,{
 			headers:{'Authorisation':localStorage.getItem("token")!}
-		}).pipe(
+		}*/).pipe(
 		  tap( (data) => console.log("ok"))
 		);
 	}
@@ -45,6 +45,15 @@ export class RequestService {
 		return this._httpClient.get<any[]>('http://localhost:8080/api/request/future',{
 			params: {status}
 		}).pipe(
+			// Gestion de l'erreur
+			catchError((error) => {
+				return throwError(() => new Error("ERREUR"))
+			})
+		);
+	}
+
+	getOne(id:number) {
+		return this._httpClient.get<any[]>('http://localhost:8080/api/request/'+id).pipe(
 			// Gestion de l'erreur
 			catchError((error) => {
 				return throwError(() => new Error("ERREUR"))

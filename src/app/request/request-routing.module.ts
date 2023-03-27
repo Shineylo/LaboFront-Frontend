@@ -13,7 +13,7 @@ const routes: Routes = [
     { path: 'new', component: NewComponent},
     { path: 'mine', component: MineComponent},
     { path: 'manage', component: ManageComponent},
-    {path: 'edit/:id', component: DetailsComponent},
+    { path: 'detail/:id', component: DetailsComponent},
 
 ]
 

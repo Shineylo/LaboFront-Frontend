@@ -1,7 +1,7 @@
 <ul class="">
 	<li *ngFor="let request of requests">
 		<a [routerLink]="'/request/detail/'+request.id">
-			{{ request.id+" "+request.currentStatus }}
+			{{ request.id+" "+request.madeBy }}
 		</a>
 	</li>
 </ul>

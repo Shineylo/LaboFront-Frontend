@@ -37,11 +37,11 @@ function inFutureDays( days:number ): ValidatorFn{
   }
 }
 
-function minTime(minHour: number,minMinutes:number):ValidatorFn{
+function minTime(minHour: number):ValidatorFn{
   return (control: AbstractControl) => {
     const inputTime = new Date("01/01/1970 "+control.value);
 
-    if(inputTime.getHours()>=minHour && inputTime.getMinutes()>=minMinutes){
+    if(inputTime.getHours()>=minHour){
       return null;
     }
     return {
@@ -96,8 +96,8 @@ export class NewComponent implements OnInit{
       'neededCapacity': new FormControl('', [Validators.min(5), Validators.max(300)]),
       'justification': new FormControl(''),
       'date': new FormControl('', [Validators.required,inFutureDays(3),notWE()]),
-      'beginAt': new FormControl('', [Validators.required, minTime(8,0),maxTime(17,30)]),
-      'endAt': new FormControl('', [Validators.required,minTime(8,30), maxTime(18,0)]),
+      'beginAt': new FormControl('', [Validators.required, minTime(8),maxTime(17,0)]),
+      'endAt': new FormControl('', [Validators.required,minTime(9), maxTime(18,0)]),
       'materialIds': new FormControl([])
     },
     {
